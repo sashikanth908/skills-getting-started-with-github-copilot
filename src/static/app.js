@@ -25,9 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
           <p>${details.description}</p>
           <p><strong>Schedule:</strong> ${details.schedule}</p>
           <p><strong>Availability:</strong> ${spotsLeft} spots left</p>
+          <button type="button" class="activity-signup" data-activity="${name}">Sign up</button>
         `;
 
         activitiesList.appendChild(activityCard);
+
+        activityCard.querySelector(".activity-signup").addEventListener("click", () => {
+          activitySelect.value = name;
+          document.getElementById("email").focus();
+        });
 
         // Add option to select dropdown
         const option = document.createElement("option");
